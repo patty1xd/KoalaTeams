@@ -1,0 +1,26 @@
+name: TeamsPlugin
+version: 1.0.0
+main: com.teams.TeamsPlugin
+api-version: '1.21'
+description: Full featured teams plugin
+authors: [Teams]
+softdepend: [PlaceholderAPI]
+
+commands:
+  team:
+    description: Main team command
+    usage: /team <subcommand>
+  teamchat:
+    description: Toggle team chat
+    usage: /teamchat
+  allychat:
+    description: Toggle ally chat
+    usage: /allychat
+  teampvp:
+    description: Toggle team friendly fire
+    usage: /teampvp
+
+permissions:
+  teams.admin:
+    description: Admin access
+    default: op
