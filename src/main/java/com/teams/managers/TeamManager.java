@@ -48,6 +48,21 @@ public class TeamManager {
         return team;
     }
 
+    public void renameTeam(Team team, String newName) {
+        String oldKey = team.getStripName().toLowerCase();
+        teams.remove(oldKey);
+        team.setName(newName);
+        String newKey = team.getStripName().toLowerCase();
+        teams.put(newKey, team);
+        // Update ally references in other teams
+        for (Team t : teams.values()) {
+            if (t.getAllies().remove(oldKey)) t.getAllies().add(newKey);
+        }
+        // Update playerTeam map
+        for (UUID uuid : team.getMembers()) playerTeam.put(uuid, newKey);
+        saveAll();
+    }
+
     public void disbandTeam(Team team) {
         for (UUID uuid : team.getMembers()) playerTeam.remove(uuid);
         // Remove from all ally lists
