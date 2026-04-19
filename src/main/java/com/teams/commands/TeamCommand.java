@@ -103,7 +103,6 @@ if (args.length == 2) {
         }
     }
 }       
-        }
 
         if (args.length == 3 && args[0].equalsIgnoreCase("ally")) {
             return plugin.getTeamManager().getAllTeams().stream()
