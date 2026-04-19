@@ -1,0 +1,61 @@
+# Team settings
+max-players: 10
+max-allies: 3
+max-warps: 5
+invite-expiry: 120
+
+# Teleport settings
+home:
+  cooldown: 60
+  wait-time: 10
+warp:
+  cooldown: 30
+  wait-time: 10
+
+# Messages
+messages:
+  prefix: "§8[§5Teams§8] §r"
+  team-created: "§aTeam §f{team} §acreated!"
+  team-disbanded: "§cTeam §f{team} §cdisbanded."
+  team-full: "§cTeam is full! Max players: §e{max}"
+  not-in-team: "§cYou are not in a team."
+  already-in-team: "§cYou are already in a team."
+  not-leader: "§cOnly the team leader can do this."
+  not-leader-or-promoted: "§cYou don't have permission to do this."
+  player-not-found: "§cPlayer not found."
+  invite-sent: "§aInvite sent to §f{player}§a!"
+  invite-received: "§e{player} §7invited you to join §5{team}§7! Type §a/team join §7to accept. §7(Expires in {expiry}s)"
+  invite-expired: "§cYour invite to §f{team} §chas expired."
+  invite-none: "§cYou have no pending invite."
+  joined-team: "§aYou joined §5{team}§a!"
+  player-joined: "§a{player} §7joined the team!"
+  left-team: "§cYou left the team."
+  player-left: "§c{player} §7left the team."
+  promoted: "§a{player} §7has been promoted!"
+  you-promoted: "§aYou have been promoted to officer!"
+  ally-added: "§aAllied with §5{team}§a!"
+  ally-removed: "§cAlliance with §5{team} §cremoved."
+  ally-max: "§cMax allies reached! Max: §e{max}"
+  ally-request-sent: "§aAlly request sent to §5{team}§a!"
+  ally-request-received: "§5{team} §7wants to ally with you! Use §a/team ally add {team} §7to accept."
+  warp-set: "§aWarp §f{name} §aset!"
+  warp-deleted: "§cWarp §f{name} §cdeleted."
+  warp-not-found: "§cWarp not found."
+  warp-max: "§cMax warps reached! Max: §e{max}"
+  home-set: "§aTeam home set!"
+  home-deleted: "§cTeam home deleted."
+  home-not-set: "§cTeam home is not set."
+  teleport-wait: "§eTeleporting in §f{time}§e seconds. Don't move or take damage!"
+  teleport-cancelled: "§cTeleport cancelled!"
+  teleport-cooldown: "§cPlease wait §e{time}s §cbefore teleporting again."
+  teamchat-on: "§aTeam chat enabled. Messages will only go to your team."
+  teamchat-off: "§7Team chat disabled."
+  allychat-on: "§aAlly chat enabled. Messages will only go to allies."
+  allychat-off: "§7Ally chat disabled."
+  teampvp-on: "§cTeam friendly fire enabled!"
+  teampvp-off: "§aTeam friendly fire disabled."
+  friendly-fire: "§cYou can't attack your teammate!"
+  ally-fire: "§cYou can't attack your ally!"
+  teamchat-format: "§8[§5TEAM§8] {team} §7{player}§f: {message}"
+  allychat-format: "§8[§6ALLY§8] {team} §7{player}§f: {message}"
+  disband-confirm: "§cAre you sure you want to disband? Type §f/team disband confirm §cto proceed."
