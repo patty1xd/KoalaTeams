@@ -27,7 +27,9 @@ public class TeamsPlugin extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new TeamListeners(this), this);
 
-        getCommand("team").setExecutor(new TeamCommand(this));
+        TeamCommand teamCmd = new TeamCommand(this);
+        getCommand("team").setExecutor(teamCmd);
+        getCommand("team").setTabCompleter(teamCmd);
         getCommand("teamchat").setExecutor(new TeamChatCommand(this));
         getCommand("allychat").setExecutor(new AllyChatCommand(this));
         getCommand("teampvp").setExecutor(new TeamPvpCommand(this));
