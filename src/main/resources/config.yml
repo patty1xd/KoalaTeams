@@ -56,6 +56,6 @@ messages:
   teampvp-off: "§aTeam friendly fire disabled."
   friendly-fire: "§cYou can't attack your teammate!"
   ally-fire: "§cYou can't attack your ally!"
-  teamchat-format: "§8[§5TEAM§8] {team} §7{player}§f: {message}"
-  allychat-format: "§8[§6ALLY§8] {team} §7{player}§f: {message}"
+  teamchat-format: "§8[§5§lTEAM§8] §8[{team}§8] §f{player} §8» §d{message}"
+  allychat-format: "§8[§6§lALLY§8] §8[{team}§8] §f{player} §8» §6{message}"
   disband-confirm: "§cAre you sure you want to disband? Type §f/team disband confirm §cto proceed."
