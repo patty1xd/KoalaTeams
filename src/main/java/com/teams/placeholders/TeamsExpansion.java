@@ -23,7 +23,7 @@ public class TeamsExpansion extends PlaceholderExpansion {
         Team team = plugin.getTeamManager().getPlayerTeam(player.getUniqueId());
 
         return switch (identifier) {
-            case "name" -> team != null ? team.getColoredName() : "§7None";
+            case "name" -> team != null ? team.getColoredName() : "";
             case "name_strip" -> team != null ? team.getStripName() : "None";
             case "role" -> {
                 if (team == null) yield "§7None";
