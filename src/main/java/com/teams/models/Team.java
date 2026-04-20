@@ -48,8 +48,12 @@ public class Team {
     public void deleteWarp(String name) { warps.remove(name.toLowerCase()); }
     public Location getWarp(String name) { return warps.get(name.toLowerCase()); }
 
-    public String getColoredName() { return name.replace("&", "§"); }
+    public String getColoredName() {
+        return org.bukkit.ChatColor.translateAlternateColorCodes('&', name);
+    }
     public String getStripName() {
-        return org.bukkit.ChatColor.stripColor(name.replace("&", "§"));
+        return org.bukkit.ChatColor.stripColor(
+            org.bukkit.ChatColor.translateAlternateColorCodes('&', name)
+        );
     }
 }
