@@ -16,19 +16,25 @@ public class DisplayManager {
         Team team = plugin.getTeamManager().getPlayerTeam(player.getUniqueId());
         String prefix = team != null ? "§8[" + team.getColoredName() + "§8] " : "";
 
-        // Update nametag for all online players
-        for (Player p : Bukkit.getOnlinePlayers()) {
-            Scoreboard board = p.getScoreboard();
-            if (board == null || board == Bukkit.getScoreboardManager().getMainScoreboard()) continue;
-            String teamName = "tm_" + player.getName().substring(0, Math.min(10, player.getName().length()));
-            org.bukkit.scoreboard.Team st = board.getTeam(teamName);
-            if (st == null) st = board.registerNewTeam(teamName);
+        // Update this player's nametag on EVERYONE's scoreboard
+        for (Player viewer : Bukkit.getOnlinePlayers()) {
+            Scoreboard board = viewer.getScoreboard();
+            // If they're on the main scoreboard, give them a custom one
+            if (board == Bukkit.getScoreboardManager().getMainScoreboard()) {
+                board = Bukkit.getScoreboardManager().getNewScoreboard();
+                viewer.setScoreboard(board);
+            }
+            String teamKey = "tm_" + player.getName().substring(0, Math.min(10, player.getName().length()));
+            org.bukkit.scoreboard.Team st = board.getTeam(teamKey);
+            if (st == null) st = board.registerNewTeam(teamKey);
             st.setPrefix(prefix);
             st.addEntry(player.getName());
         }
 
         // TAB display
-        String tabName = team != null ? "§8[" + team.getColoredName() + "§8] §f" + player.getName() : "§f" + player.getName();
+        String tabName = team != null
+            ? "§8[" + team.getColoredName() + "§8] §f" + player.getName()
+            : "§f" + player.getName();
         player.setPlayerListName(tabName);
     }
 
@@ -38,14 +44,12 @@ public class DisplayManager {
 
     public void clearPlayer(Player player) {
         player.setPlayerListName(player.getName());
-        for (Player p : Bukkit.getOnlinePlayers()) {
-            Scoreboard board = p.getScoreboard();
+        for (Player viewer : Bukkit.getOnlinePlayers()) {
+            Scoreboard board = viewer.getScoreboard();
             if (board == null) continue;
-            String teamName = "tm_" + player.getName().substring(0, Math.min(10, player.getName().length()));
-            org.bukkit.scoreboard.Team st = board.getTeam(teamName);
-            if (st != null) {
-                st.removeEntry(player.getName());
-            }
+            String teamKey = "tm_" + player.getName().substring(0, Math.min(10, player.getName().length()));
+            org.bukkit.scoreboard.Team st = board.getTeam(teamKey);
+            if (st != null) st.removeEntry(player.getName());
         }
     }
 }
