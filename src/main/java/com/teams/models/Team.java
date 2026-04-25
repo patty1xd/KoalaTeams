@@ -1,5 +1,6 @@
 package com.teams.models;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import java.util.*;
 
@@ -48,12 +49,12 @@ public class Team {
     public void deleteWarp(String name) { warps.remove(name.toLowerCase()); }
     public Location getWarp(String name) { return warps.get(name.toLowerCase()); }
 
+    // Translates & color codes including &l bold, &o italic etc
     public String getColoredName() {
-        return org.bukkit.ChatColor.translateAlternateColorCodes('&', name);
+        return ChatColor.translateAlternateColorCodes('&', name);
     }
+
     public String getStripName() {
-        return org.bukkit.ChatColor.stripColor(
-            org.bukkit.ChatColor.translateAlternateColorCodes('&', name)
-        );
+        return ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', name));
     }
 }
