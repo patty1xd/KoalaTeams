@@ -1,9 +1,9 @@
-name: TeamsPlugin
+name: KoalaTeams
 version: 1.0.0
 main: com.teams.TeamsPlugin
 api-version: '1.21'
 description: Full featured teams plugin
-authors: [Teams]
+authors: [KoalaTeams]
 softdepend: [PlaceholderAPI]
 
 commands:
