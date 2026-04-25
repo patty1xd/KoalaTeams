@@ -3,6 +3,7 @@ package com.teams.managers;
 import com.teams.TeamsPlugin;
 import com.teams.models.Team;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.Scoreboard;
 
@@ -14,12 +15,12 @@ public class DisplayManager {
 
     public void updatePlayer(Player player) {
         Team team = plugin.getTeamManager().getPlayerTeam(player.getUniqueId());
-        String prefix = team != null ? "§8[" + team.getColoredName() + "§8] " : "";
+        // White brackets: [TeamName]
+        String prefix = team != null ? "§f[" + team.getColoredName() + "§f] " : "";
 
-        // Update this player's nametag on EVERYONE's scoreboard
+        // Update nametag on everyone's scoreboard
         for (Player viewer : Bukkit.getOnlinePlayers()) {
             Scoreboard board = viewer.getScoreboard();
-            // If they're on the main scoreboard, give them a custom one
             if (board == Bukkit.getScoreboardManager().getMainScoreboard()) {
                 board = Bukkit.getScoreboardManager().getNewScoreboard();
                 viewer.setScoreboard(board);
@@ -31,9 +32,9 @@ public class DisplayManager {
             st.addEntry(player.getName());
         }
 
-        // TAB display
+        // TAB display name
         String tabName = team != null
-            ? "§8[" + team.getColoredName() + "§8] §f" + player.getName()
+            ? "§f[" + team.getColoredName() + "§f] §f" + player.getName()
             : "§f" + player.getName();
         player.setPlayerListName(tabName);
     }
